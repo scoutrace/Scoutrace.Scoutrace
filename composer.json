@@ -1,0 +1,17 @@
+{
+  "name": "scoutrace\/scoutrace",
+  "description": "Scout Race Core package",
+  "type": "typo3-flow-package",
+  "description": null,
+  "version": null,
+  "require": {
+    "typo3\/flow": "*",
+    "typo3\/form": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Scoutrace\\Scoutrace": "Classes"
+    }
+  }
+}
+

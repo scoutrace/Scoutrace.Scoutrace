@@ -32,7 +32,7 @@ before_script:
   # [Replace Package key here]
   #- mkdir -p Flow/Packages/Application && cd Flow/Packages/Application && ln -s ../../../Scoutrace.Scoutrace && cd ../../
   # [Replace Package key here]
-  - composer create-project -sdev scoutrace/distribution scoutrace-composer
+  - composer  create-project --keep-vcs -sdev scoutrace/distribution scoutrace-composer
   - rm -rf scoutrace-composer/Packages/Application/Scoutrace.Scoutrace
   - mkdir -p scoutrace-composer/Packages/Application && cd scoutrace-composer/Packages/Application && ln -s ../../../Scoutrace.Scoutrace && cd ../../
   - if [[ "$DB" == "mysql" ]]; then mysql -u root -e 'create database flow;' && curl -Lk https://gist.github.com/raw/4276117/af19ef22064aae4875f41342845fb89de2f2b72c/Settings.Mysql.yaml > Configuration/Settings.yaml ; fi

@@ -14,6 +14,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Activity {
 
+	/**
+	 * Event
+	 *
+	 * @var \Scoutrace\Scoutrace\Domain\Model\Event
+	 * @ORM\ManyToOne(inversedBy="activities")
+	 */
+	protected $event;
 
+	/**
+	 * Answers
+	 *
+	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Answer>
+	 * @ORM\OneToMany(mappedBy="activity")
+	 */
+	protected $answers;
 }
 ?>

@@ -8,19 +8,21 @@ namespace Scoutrace\Scoutrace\Domain\Model;
 
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
+use TYPO3\Party\Domain\Model\AbstractParty;
 
 /**
  * @Flow\Entity
  */
-class Team {
+class Account extends AbstractParty {
 
 	/**
-	 * Given answers
+	 * Events
 	 *
-	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Answer>
-	 * @ORM\OneToMany(mappedBy="team")
+	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Event>
+	 * @ORM\ManyToMany(inversedBy="organizers")
 	 */
-	protected $answers;
+	protected $events;
+
 
 }
 ?>

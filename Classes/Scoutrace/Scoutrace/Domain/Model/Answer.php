@@ -14,6 +14,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Answer {
 
+	/**
+	 * Activity
+	 *
+	 * @var \Scoutrace\Scoutrace\Domain\Model\Activity
+	 * @ORM\ManyToOne(inversedBy="answers")
+	 */
+	protected $activity;
+
+	/**
+	 * Team
+	 *
+	 * @var \Scoutrace\Scoutrace\Domain\Model\Team
+	 * @ORM\ManyToOne(inversedBy="answers")
+	 */
+	protected $team;
 
 }
 ?>

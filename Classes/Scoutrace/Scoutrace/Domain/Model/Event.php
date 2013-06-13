@@ -6,6 +6,7 @@ namespace Scoutrace\Scoutrace\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\Common\Collections\ArrayCollection;
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,9 +35,17 @@ class Event {
 	 * Organizers
 	 *
 	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Account>
-	 * @ORM\ManyToMany
+	 * @ORM\ManyToMany(mappedBy="events")
 	 */
 	protected $organizers;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->activities = new ArrayCollection();
+		$this->organizers = new ArrayCollection();
+	}
 
 	/**
 	 * @param string $title
@@ -82,6 +91,7 @@ class Event {
 	 * @var \Scoutrace\Scoutrace\Domain\Model\Activity
 	 */
 	public function addActivity(\Scoutrace\Scoutrace\Domain\Model\Activity $activity) {
+		$activity->setEvent($this);
 		$this->activities->add($activity);
 	}
 

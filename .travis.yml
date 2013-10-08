@@ -42,7 +42,7 @@ before_script:
 script:
   # Install Prerequirements
   - phpunit -c Build/BuildEssentials/PhpUnit/UnitTests.xml && phpunit -c Build/BuildEssentials/PhpUnit/FunctionalTests.xml
-  - if [[ "$DB" == "mysql" ]]; then ./flow doctrine:migrate --quiet && ./flow doctrine:migrate --version 0 --quiet ; fi
+  - if [[ "$DB" == "mysql" ]]; then ./flow doctrine:migrate && ./flow doctrine:migrate --version 0 ; fi
   - echo "Framework Tested."
   - phpunit -c Build/PhpUnit/UnitTests.xml && phpunit -c Build/PhpUnit/FunctionalTests.xml
   # [Replace Package key here]

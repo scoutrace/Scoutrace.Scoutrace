@@ -13,3 +13,20 @@
 		
 	</ul>
 </f:section>
+
+<f:section name="Login">
+<form action="flow/authenticate" method="post" name="loginform">
+        <input type="text" id="username"
+                name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]"
+                value="" tabindex="1" />
+        <input type="password" id="password"
+                name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]"
+                value="" tabindex="2" />
+        <input type="submit" value="Login" tabindex="3" />
+</form>
+</f:section>
+
+<f:section name="FacebookLogin">
+<div id="fb-root"></div>
+<fb:login-button perms="email" autologoutlink="true" show-faces="true" width="200" max-rows="1"></fb:login-button>
+</f:section>

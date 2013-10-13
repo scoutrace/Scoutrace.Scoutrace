@@ -6,9 +6,11 @@
 		<f:base />
 	</head>
 	<body>
+		<script src="{f:uri.resource(path: 'JavaScript/facebook.js', package:'Scoutrace.Scoutrace')}"></script>
 		<f:flashMessages class="flashmessages" />
 
 		<h1><f:render section="Title" /></h1>
 		<f:render section="Content" />
+		<f:render section="FacebookLogin" />
 	</body>
 </html>

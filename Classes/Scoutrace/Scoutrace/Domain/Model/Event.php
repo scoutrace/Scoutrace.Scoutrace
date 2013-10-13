@@ -32,6 +32,14 @@ class Event {
 	protected $activities;
 
 	/**
+	 * Teams
+	 *
+	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Team>
+	 * @ORM\OneToMany(mappedBy="event")
+	 */
+	protected $teams;
+
+	/**
 	 * Organizers
 	 *
 	 * @var \Doctrine\Common\Collections\Collection<\Scoutrace\Scoutrace\Domain\Model\Account>
@@ -45,6 +53,7 @@ class Event {
 	public function __construct() {
 		$this->activities = new ArrayCollection();
 		$this->organizers = new ArrayCollection();
+		$this->teams = new ArrayCollection();
 	}
 
 	/**

@@ -3,6 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title><f:render section="Title" /></title>
+
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/Libraries/Bootstrap/bootstrap.min.css')}" />
+
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/Libraries/Leaflet/leaflet.css')}" />
+		<!--[if IE]>
+			<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/Libraries/Leaflet/leaflet.ie.css')}" />
+		<![endif]-->
+
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/base.css')}" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/screen.css')}" media="screen" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/print.css')}" media="print" />
+
 		<f:base />
 	</head>
 	<body>
@@ -10,5 +22,7 @@
 
 		<h1><f:render section="Title" /></h1>
 		<f:render section="Content" />
+
+		<script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/Libraries/require.js')}" data-main="{f:uri.resource(path: 'JavaScript/app.js')}" async></script>
 	</body>
 </html>

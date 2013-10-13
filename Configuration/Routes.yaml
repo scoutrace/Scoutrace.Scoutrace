@@ -1,0 +1,6 @@
+-
+  name: 'TYPO3 Flow Standard'
+  uriPattern: '<TYPO3FlowSubroutes>'
+  subRoutes:
+    TYPO3FlowSubroutes:
+      package: TYPO3.Flow

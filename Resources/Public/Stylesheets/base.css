@@ -1,0 +1,33 @@
+body {
+  padding-top: 50px;
+}
+
+a {
+  color: #3a93cc;
+}
+
+.navbar {
+  background: #3a93cc;
+  box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.4);
+}
+.navbar .icon-bar {
+  background-color: white;
+}
+.navbar a {
+  color: white;
+}
+
+.navbar-nav > li > a:hover {
+  background: #4e9ed1;
+}
+.navbar-nav > li.active > a {
+  background: #63a9d6;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li {
+    border: 1px solid #2f80b4;
+    border-width: 0 1px;
+    margin-right: -1px;
+  }
+}

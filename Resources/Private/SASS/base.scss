@@ -1,0 +1,40 @@
+@import "variables";
+
+body {
+	padding-top: 50px;
+}
+
+a {
+	color: $mainColor;
+}
+
+.navbar {
+	$navbarTextColor: #fff;
+
+	background: $mainColor;
+  	box-shadow: 0 .1em .2em rgba(0, 0, 0, .4);
+
+	.icon-bar {
+		background-color: $navbarTextColor;
+	}
+
+	a {
+		color: $navbarTextColor;
+	}
+}
+
+.navbar-nav > li {
+	> a:hover {
+		background: lighten($mainColor, 5%);
+	}
+	&.active > a {
+		background: lighten($mainColor, 10%);
+	}
+}
+@media (min-width: 768px) {
+	.navbar-nav > li {
+		border: 1px solid darken($mainColor, 7%);
+		border-width: 0 1px;
+		margin-right: -1px;
+	}
+}

@@ -1,16 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<f:base />
+
 		<title><f:render section="Title" /></title>
+
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Libraries//Bootstrap/css/bootstrap.min.css')}" />
+
+		<link rel="stylesheet" href="{f:uri.resource(path: '/Libraries/Leaflet/css/leaflet.css')}" />
+		<!--[if IE]>
+			<link rel="stylesheet" href="{f:uri.resource(path: '/Libraries/Leaflet/css/leaflet.ie.css')}" />
+		<![endif]-->
+
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/base.css')}" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/screen.css')}" media="screen" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Stylesheets/print.css')}" media="print" />
+
 		<f:base />
 	</head>
 	<body>
 		<script src="{f:uri.resource(path: 'JavaScript/facebook.js', package:'Scoutrace.Scoutrace')}"></script>
-		<f:flashMessages class="flashmessages" />
 
-		<h1><f:render section="Title" /></h1>
-		<f:render section="Content" />
 		<f:render section="FacebookLogin" />
+
+		<nav class="navbar navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<f:link.action action="index" controller="Standard" class="navbar-brand">ScoutRace</f:link.action>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#login"><span class="glyphicon glyphicon-user"></span> Log ind</a></li>
+						<li><a href="#searchactivities"><span class="glyphicon glyphicon-search"></span> Find post</a></li>
+						<li><a href="#aboutus"><span class="glyphicon glyphicon-question-sign"></span> Om os</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<article>
+			<section class="container">
+				<f:flashMessages class="flashmessages" />
+			</section>
+
+			<section class="jumbotron">
+				<div class="container">
+					<h1><f:render section="Title" /></h1>
+					<f:render section="Content" />
+				</div>
+			</section>
+
+			<section class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<h2>Heading</h2>
+						<p>Some text.</p>
+						<p><a class="btn btn-info" href="#">View details »</a></p>
+					</div>
+					<div class="col-lg-4">
+						<h2>Heading</h2>
+						<p>Some text.</p>
+						<p><a class="btn btn-info" href="#">View details »</a></p>
+					</div>
+					<div class="col-lg-4">
+						<h2>Heading</h2>
+						<p>Some text.</p>
+						<p><a class="btn btn-info" href="#">View details »</a></p>
+					</div>
+				</div>
+			</section>
+		</article>
+
+
+		<script type="text/javascript" src="{f:uri.resource(path: '/Libraries/Require/require.js')}" data-main="{f:uri.resource(path: 'JavaScript/app.js')}" async></script>
 	</body>
 </html>

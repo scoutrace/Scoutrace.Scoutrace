@@ -66,7 +66,8 @@
 				type: 'POST',
 				data: loginData	
 			}).done(function() {
-				alert('Du er nu logget ind');
+				//alert('Du er nu logget ind');
+				console.log('Logget ind, du er');
 			});
 		});
 	}

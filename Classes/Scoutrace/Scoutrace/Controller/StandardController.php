@@ -79,8 +79,9 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 				$personName = new \TYPO3\Party\Domain\Model\PersonName($title, $firstName, $middleName, $lastName, $otherName, $alias);
 				$person->setName($personName);
 				$electronicAddress = new \TYPO3\Party\Domain\Model\ElectronicAddress();
-				$electronicAddress->setIdetifier($email);
-				$electronicAddress->setType($electronicAddress->TYPE_EMAIL);
+				$electronicAddress->setIdentifier($email);
+				$electronicAddress->setType('Email');
+				//$electronicAddress->setType($electronicAddress->TYPE_EMAIL);
 				$electronicAddress->setApproved(true);
 				$person->addElectronicAddress($electronicAddress);
 				//$person->addAccount($new_account);

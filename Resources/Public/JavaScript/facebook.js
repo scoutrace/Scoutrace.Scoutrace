@@ -2,7 +2,7 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '529494700475933', // App ID
-    channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+    channelUrl : '//localhost:8080/_Resources/Static/Packages/Scoutrace.Scoutrace/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -59,9 +59,10 @@
 				email: response.email,
 				name: response.name,
 				username: response.username,
-				firstname: response.firstname,
-				lastname: response.lastname
+				firstname: response.first_name,
+				lastname: response.last_name
 			};
+			//console.log(response);
 			$.ajax({
 				url: "/scoutrace.scoutrace/standard/loginfacebook",
 				context: document.body,

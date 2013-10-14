@@ -12,6 +12,11 @@ a {
   color: #3a93cc;
 }
 
+.logo {
+  height: 2em;
+  margin: -0.8em 0 -0.5em;
+}
+
 .navbar {
   background: #3a93cc;
   box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.4);

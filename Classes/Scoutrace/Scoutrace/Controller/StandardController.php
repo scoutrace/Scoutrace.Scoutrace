@@ -14,29 +14,29 @@ use TYPO3\Flow\Annotations as Flow;
  * @Flow\Scope("singleton")
  */
 class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
-		/**
-          * @Flow\Inject
-          * @var \TYPO3\Flow\Security\AccountRepository
-          */
-         protected $accountRepository;
- 
-         /**
-          * @Flow\Inject
-          * @var \TYPO3\Party\Domain\Repository\PartyRepository
-          */
-         protected $partyRepository;
- 
-         /**
-          * @Flow\Inject
-          * @var \TYPO3\Flow\Security\Cryptography\HashService
-          */
-         protected $hashService;
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountRepository
+	 */
+	protected $accountRepository;
 
-/**
-* @Flow\Inject
-* @var \TYPO3\Flow\Security\AccountFactory
-*/
-protected $accountFactory;
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Party\Domain\Repository\PartyRepository
+	 */
+	protected $partyRepository;
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Cryptography\HashService
+	 */
+	protected $hashService;
+
+	/**
+	* @Flow\Inject
+	* @var \TYPO3\Flow\Security\AccountFactory
+	*/
+	protected $accountFactory;
 
 	/**
 	 * @Flow\Inject
@@ -61,6 +61,8 @@ protected $accountFactory;
 		$userid = $arguments['userid'];
 		$username = $arguments['username'];
 		$name = $arguments['name'];
+		$firstName = $arguments['firstname'];
+		$lastName = $arguments['lastname'];
 		$account = $this->accountRepository->findByIdentifierAndAuthenticationProviderName($email, 'FacebookProvider');
 		if ($account instanceof \TYPO3\Flow\Security\Account) {
 			$this->addFlashMessage('You have logged in using facebook and you have an account already');
@@ -68,11 +70,25 @@ protected $accountFactory;
 		} else {
 			try {
 				$roleIdentifiers = array('Scoutrace.Scoutrace:User');
-				$account = $this->accountFactory->createAccountWithPassword($email, "asdfsdf", $roleIdentifiers, 'FacebookProvider');
-				$user = new \TYPO3\Party\Domain\Model\Person();
-				$user->addAccount($account);
-				$this->partyRepository->add($user);
-				$this->accountRepository->add($account);
+				//$new_account = $this->accountFactory->createAccountWithPassword($email, "asdfsdf", $roleIdentifiers, 'FacebookProvider');
+				$person = new \TYPO3\Party\Domain\Model\Person();
+				$title = ''; //Like mr. or mrs.
+				$middleName = '';
+				$otherName = ''; // Like Jr. or IV.
+				$alias = $username;
+				$personName = new \TYPO3\Party\Domain\Model\PersonName($title, $firstName, $middleName, $lastName, $otherName, $alias);
+				$person->setName($personName);
+				$electronicAddress = new \TYPO3\Party\Domain\Model\ElectronicAddress();
+				$electronicAddress->setIdetifier($email);
+				$electronicAddress->setType($electronicAddress->TYPE_EMAIL);
+				$electronicAddress->setApproved(true);
+				$person->addElectronicAddress($electronicAddress);
+				//$person->addAccount($new_account);
+				$this->partyRepository->add($person);
+				$accounts = $person->getAccounts();
+				foreach ($accounts as $account) {
+					$this->accountRepository->add($account);
+				}
 				$this->addFlashMessage('You have logged in using facebook and you have created an account');
 				$this->persistenceManager->persistsAll();
 				$this->redirect('index');

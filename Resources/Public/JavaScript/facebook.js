@@ -58,7 +58,9 @@
 				userid: response.id,
 				email: response.email,
 				name: response.name,
-				username: response.username
+				username: response.username,
+				firstname: response.firstname,
+				lastname: response.lastname
 			};
 			$.ajax({
 				url: "/scoutrace.scoutrace/standard/loginfacebook",

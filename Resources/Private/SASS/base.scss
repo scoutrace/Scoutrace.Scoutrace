@@ -4,6 +4,12 @@ body {
 	padding-top: 50px;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Core Slab M 65 Bold";
+	font-weight: normal;
+}
+
 a {
 	color: $mainColor;
 }
@@ -13,6 +19,9 @@ a {
 
 	background: $mainColor;
   	box-shadow: 0 .1em .2em rgba(0, 0, 0, .4);
+	font-family: "Core Slab M 45 Regular";
+	font-weight: normal;
+	letter-spacing: 0.1em;
 
 	.icon-bar {
 		background-color: $navbarTextColor;

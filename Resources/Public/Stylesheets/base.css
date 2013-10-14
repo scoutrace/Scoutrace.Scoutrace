@@ -2,6 +2,12 @@ body {
   padding-top: 50px;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Core Slab M 65 Bold";
+  font-weight: normal;
+}
+
 a {
   color: #3a93cc;
 }
@@ -9,6 +15,9 @@ a {
 .navbar {
   background: #3a93cc;
   box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.4);
+  font-family: "Core Slab M 45 Regular";
+  font-weight: normal;
+  letter-spacing: 0.1em;
 }
 .navbar .icon-bar {
   background-color: white;

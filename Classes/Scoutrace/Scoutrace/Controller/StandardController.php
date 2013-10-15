@@ -91,7 +91,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 					$this->accountRepository->add($account);
 				}
 				$this->addFlashMessage('You have logged in using facebook and you have created an account');
-				$this->persistenceManager->persistsAll();
+				$this->persistenceManager->persistAll();
 				$this->redirect('index');
 			} catch (\TYPO3\Flow\Security\Exception\NoSuchRoleException $exception) {
 				$this->outputLine($exception->getMessage());
